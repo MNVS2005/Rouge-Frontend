@@ -10,7 +10,6 @@ import { BrowserRouter,Routes,Route, Link } from 'react-router-dom';
 
 const handleDownload = async () => {
   try {
-    // 1. Primero comprobamos si hay archivo disponible
     const statusRes = await fetch(`${process.env.REACT_APP_API_URL}/api/download/status`);
     const status = await statusRes.json();
 
@@ -19,22 +18,8 @@ const handleDownload = async () => {
       return;
     }
 
-    // 2. Si hay archivo, procedemos a descargarlo
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/download/game`);
-
-    if (!response.ok) {
-      throw new Error(`Error del servidor: ${response.status}`);
-    }
-
-    const blob = await response.blob();
-    const url = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Rouge-Setup.exe';
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    window.URL.revokeObjectURL(url);
+    // Simplemente abrimos la URL del backend, que redirige al archivo externo
+    window.location.href = `${process.env.REACT_APP_API_URL}/api/download/game`;
 
   } catch (error) {
     console.error('Error en la descarga:', error);
