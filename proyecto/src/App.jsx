@@ -11,7 +11,7 @@ import { BrowserRouter,Routes,Route, Link } from 'react-router-dom';
 const handleDownload = async () => {
   try {
     // 1. Primero comprobamos si hay archivo disponible
-    const statusRes = await fetch('http://localhost:8080/api/download/status');
+    const statusRes = await fetch(`${process.env.REACT_APP_API_URL}/api/download/status`);
     const status = await statusRes.json();
 
     if (!status.available) {
@@ -20,7 +20,7 @@ const handleDownload = async () => {
     }
 
     // 2. Si hay archivo, procedemos a descargarlo
-    const response = await fetch('http://localhost:8080/api/download/game');
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/download/game`);
 
     if (!response.ok) {
       throw new Error(`Error del servidor: ${response.status}`);
