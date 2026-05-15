@@ -71,7 +71,49 @@ function Admin() {
     return () => controller.abort();
   }, []);
 
-  
+  // 📦 Comprobar si hay archivo de descarga
+  const fetchGameStatus = async () => {
+    try {
+      const res = await api.get("/api/download/status");
+      setUploadStatus(res.data);
+    } catch (err) {
+      console.error("Error al comprobar el archivo:", err);
+    }
+  };
+
+  // ⬆️ Subir archivo
+  const handleUpload = async () => {
+    if (!gameFile) return;
+    setUploading(true);
+    try {
+      const formData = new FormData();
+      formData.append("file", gameFile);
+      await api.post("/api/download/upload", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      alert("✅ Archivo subido correctamente");
+      setGameFile(null);
+      fetchGameStatus();
+    } catch (err) {
+      console.error(err);
+      alert("❌ Error al subir el archivo");
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  // 🗑️ Eliminar archivo
+  const handleDeleteGame = async () => {
+    if (!window.confirm("¿Seguro que quieres eliminar el archivo de descarga?")) return;
+    try {
+      await api.delete("/api/download/game");
+      alert("🗑️ Archivo eliminado");
+      fetchGameStatus();
+    } catch (err) {
+      alert("Error al eliminar el archivo");
+    }
+  };
+
   // 🚪 Logout
   const handleLogout = () => {
     localStorage.clear();
