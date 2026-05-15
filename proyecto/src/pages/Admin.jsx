@@ -186,7 +186,6 @@ function Admin() {
         </div>
       </div>
 
-     /
 
       {/* ESTADOS */}
       {loading && <p className="admin-status">Cargando actividad…</p>}
