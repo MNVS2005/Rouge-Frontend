@@ -186,47 +186,7 @@ function Admin() {
         </div>
       </div>
 
-      {/* SECCIÓN ARCHIVO DE DESCARGA */}
-      <div className="admin-upload-section">
-        <h2>📦 Archivo de Descarga</h2>
-
-        {uploadStatus?.available ? (
-          <div className="upload-status available">
-            <span>✅ Archivo disponible: <strong>{uploadStatus.filename}</strong></span>
-            <span className="file-size">
-              ({(uploadStatus.sizeBytes / 1024 / 1024).toFixed(2)} MB)
-            </span>
-            <button className="btn-danger" onClick={handleDeleteGame}>
-              🗑️ Eliminar
-            </button>
-          </div>
-        ) : (
-          <div className="upload-status unavailable">
-            ⚠️ No hay ningún archivo de descarga disponible.
-          </div>
-        )}
-
-        <div className="upload-form">
-          <input
-            type="file"
-            accept=".exe,.zip,.rar,.dmg"
-            onChange={(e) => setGameFile(e.target.files[0])}
-            className="file-input"
-          />
-          {gameFile && (
-            <span className="file-selected">
-              Seleccionado: {gameFile.name} ({(gameFile.size / 1024 / 1024).toFixed(2)} MB)
-            </span>
-          )}
-          <button
-            className="btn-secondary"
-            onClick={handleUpload}
-            disabled={!gameFile || uploading}
-          >
-            {uploading ? "⏳ Subiendo..." : "⬆️ Subir archivo"}
-          </button>
-        </div>
-      </div>
+     /
 
       {/* ESTADOS */}
       {loading && <p className="admin-status">Cargando actividad…</p>}
