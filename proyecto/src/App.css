@@ -600,3 +600,153 @@ p {
   opacity: 0.4;
   cursor: not-allowed;
 }
+/* ── CONTROLES ── */
+.controls-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: var(--dark-2);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-left: 3px solid var(--red);
+  border-radius: 10px;
+  padding: 18px 20px;
+  transition: border-color 0.25s, transform 0.2s;
+}
+
+.control-row:hover {
+  border-left-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.control-row img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.control-row h4 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 14px;
+  color: var(--red-light);
+  margin: 0 0 6px;
+  letter-spacing: 0.05em;
+}
+
+.control-row p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.game-details h3 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 22px;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* ── ENEMIGOS ── */
+.enemies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+  margin: 24px auto 0;
+}
+
+.enemy-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: var(--dark-2);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-left: 3px solid var(--red);
+  border-radius: 10px;
+  padding: 18px 20px;
+  transition: border-color 0.25s, transform 0.2s;
+}
+
+.enemy-row:hover {
+  border-left-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.enemy-row img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.enemy-row h4 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 14px;
+  color: var(--red-light);
+  margin: 0 0 6px;
+  letter-spacing: 0.05em;
+}
+
+.enemy-row p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+/* ── MONEDAS ── */
+.coins-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+  margin: 24px auto 0;
+}
+
+.coin-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: var(--dark-2);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-left: 3px solid var(--gold);  /* dorado en vez de rojo, acorde a monedas */
+  border-radius: 10px;
+  padding: 18px 20px;
+  transition: border-color 0.25s, transform 0.2s;
+}
+
+.coin-row:hover {
+  border-left-color: var(--red-light);
+  transform: translateY(-3px);
+}
+
+.coin-row img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.coin-row h4 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 14px;
+  color: var(--gold);         /* dorado para títulos de monedas */
+  margin: 0 0 6px;
+  letter-spacing: 0.05em;
+}
+
+.coin-row p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}

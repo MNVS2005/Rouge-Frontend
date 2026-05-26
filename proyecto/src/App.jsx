@@ -117,7 +117,7 @@ function Home() {
         <section className='WAW?'>
           <h2>¿Quienes somos?</h2>
           <p>Somos dos estudiantes del grado superior de desarrollo de aplicaciones web en el instituto Puig Castellar decidimos crear Rouge como nuestro proyecto final.</p>
-          <p>Esta idea surgio a nuestra inspiracion en los juegos estilo Rougelike, uno de nuestros referentes el aclamado The binding of Isaac</p>
+          <p>Esta idea surgio a nuestra inspiracion en los juegos estilo Rougelike, uno de nuestros referentes el aclamado The binding of Isaac.</p>
           <p>Queremos crear un juego que combine la emoción de los juegos de acción con la profundidad de los juegos de rol, ofreciendo a los jugadores una experiencia única y desafiante.</p>         
         </section>
       <div id="caracteristicas" className="Caracteristicas">
@@ -125,6 +125,7 @@ function Home() {
   <h2>Características Principales</h2>
 
   <div className="features-table">
+
 
     <div className="feature-title">Gráficos Retro Modernos</div>
     <div className="feature-desc">
@@ -147,7 +148,142 @@ function Home() {
     </div>
 
   </div>
+
 </div>
+<br/>
+  <h2>Detalles sobre el Juego</h2>
+  <div className="game-details">
+  <p>Este apartado te explicaremos los aspectos más interesantes del juego.</p>  
+  <br/>
+  <h3>Controles</h3>
+   <div className="controls-list">
+    <div className="control-row">
+      <img src="/assets/Controls/wasd.png" alt="Teclas WASD" />
+      <div>
+        <h4>Movimiento</h4>
+        <p>Usa las teclas <strong>W A S D</strong> para mover al personaje por el escenario.</p>
+      </div>
+    </div>
+
+    <div className="control-row">
+      <img src="/assets/Controls/space_key_s.png" alt="Barra espaciadora" />
+      <div>
+        <h4>Saltar</h4>
+        <p>Pulsa la <strong>barra espaciadora</strong> para hacer saltar al personaje.</p>
+      </div>
+    </div>
+
+    <div className="control-row">
+      <img src="/assets/Controls/letter_e.png" alt="Tecla E" />
+      <div>
+        <h4>Pausar/Tienda</h4>
+        <p>Pulsa <strong>E</strong> para pausar el juego o acceder a la tienda.</p>
+      </div>
+    </div>
+
+    <div className="control-row">
+      <img src="/assets/Controls/letter_j.png" alt="Tecla J" />
+      <div>
+        <h4>Atacar</h4>
+        <p>Pulsa <strong>J</strong> para realizar un ataque o acción de combate.</p>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <h3>Enemigos</h3>
+  <p>En Rouge, te enfrentarás a una variedad de enemigos, cada uno con sus propias 
+  habilidades y patrones de ataque. Desde los básicos hasta los jefes finales, cada 
+  encuentro será un desafío único que pondrá a prueba tus habilidades y estrategias.</p>
+
+<div className="enemies-list">
+
+  <div className="enemy-row">
+    <img src="/assets/Characters/enemies/Golem.PNG" alt="Golem" />
+    <div>
+      <h4>Golem</h4>
+      <p>Una criatura de piedra de movimientos lentos pero golpes devastadores. 
+      Resiste el daño físico, busca sus puntos débiles.</p>
+    </div>
+  </div>
+
+  <div className="enemy-row">
+    <img src="/assets/Characters/enemies/GolemFuerte.PNG" alt="Golem Fuerte" />
+    <div>
+      <h4>Golem Fuerte</h4>
+      <p>Versión reforzada del Golem. Mayor armadura y ataques en área que 
+      sacuden el suelo a su alrededor.</p>
+    </div>
+  </div>
+
+  <div className="enemy-row">
+    <img src="/assets/Characters/enemies/JefeSlime.PNG" alt="Jefe Slime" />
+    <div>
+      <h4>Jefe Slime</h4>
+      <p>Jefe de la guarida de slimes. Doble el tamaño y con un poco más de vida que de costumbre. Cuidado que este si que pega.</p>
+    </div>
+  </div>
+
+  <div className="enemy-row">
+    <img src="/assets/Characters/enemies/ReyGolem.PNG" alt="Rey Golem" />
+    <div>
+      <h4>Rey Golem</h4>
+      <p>El monarca de piedra. Jefe final de gran tamaño con ataques sísmicos 
+      capaces de atravesar toda la pantalla.</p>
+    </div>
+  </div>
+
+  <div className="enemy-row">
+    <img src="/assets/Characters/enemies/ReySlime.PNG" alt="Rey Slime" />
+    <div>
+      <h4>Rey Slime</h4>
+      <p>La masa gelatinosa definitiva. Triple el tamaño y con más vida que los slimes normales.</p>
+    </div>
+  </div>
+
+    <div className="enemy-row">
+      <img src="/assets/Characters/enemies/Captura3.PNG" alt="Enemigo" />
+      <div>
+        <h4>Slime</h4>
+        <p>Un moco pequeño y pegajoso. Cuidado al tocarlo que puede ser peligroso. Facil de vencer.</p>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <h3>Monedas</h3>
+  <p>Durante la aventura encontraras diferentes monedas por el castillo que te ayudaran a comprar mejoras dentro de la tienda</p>
+
+  <div className="coins-list">
+
+    <div className="coin-row">
+      <img src="/assets/Values/Restos_de_slime.PNG" alt="Restos de Slime" />
+      <div>
+        <h4>Restos de Slime</h4>
+        <p>Moneda básica que sueltan los slimes al ser derrotados. 
+        Abunda en las primeras zonas y sirve para compras menores.</p>
+      </div>
+    </div>
+
+    <div className="coin-row">
+      <img src="/assets/Values/Trozo_de_cobre.PNG" alt="Trozo de Cobre" />
+      <div>
+        <h4>Trozo de Cobre</h4>
+        <p>Moneda intermedia obtenida al vencer enemigos de mayor nivel. 
+        Necesaria para mejorar equipamiento básico.</p>
+      </div>
+    </div>
+
+    <div className="coin-row">
+      <img src="/assets/Values/Trozo_de_oro.PNG" alt="Trozo de Oro" />
+      <div>
+        <h4>Trozo de Oro</h4>
+        <p>La moneda más valiosa del juego. Solo la obtienen los más hábiles 
+        al derrotar jefes y superar desafíos difíciles.</p>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
       <br/>
       </section>
       <section className='download'>
@@ -312,8 +448,7 @@ function Home() {
               '/assets/Decorations/Animated Decorations/torch_big/torch_big_3.png',
               '/assets/Decorations/Animated Decorations/torch_big/torch_big_4.png',
               '/assets/Decorations/Animated Decorations/torch_big/torch_big_5.png',
-              '/assets/Decorations/Animated Decorations/torch_big/torch_big_6.png',
-              '/assets/Decorations/Animated Decorations/torch_big/torch_big_background.png',
+              '/assets/Decorations/Animated Decorations/torch_big/torch_big_6.png'
             ]} />
             <AnimatedDecoration title="Torch Big Blue" frames={[
               '/assets/Decorations/Animated Decorations/torch_big_blue/torch_big_blue_1.png',
@@ -321,17 +456,14 @@ function Home() {
               '/assets/Decorations/Animated Decorations/torch_big_blue/torch_big_blue_3.png',
               '/assets/Decorations/Animated Decorations/torch_big_blue/torch_big_blue_4.png',
               '/assets/Decorations/Animated Decorations/torch_big_blue/torch_big_blue_5.png',
-              '/assets/Decorations/Animated Decorations/torch_big_blue/torch_big_blue_6.png',
-              '/assets/Decorations/Animated Decorations/torch_big_blue/torch_big_blue_background.png',
-            ]} />
+              '/assets/Decorations/Animated Decorations/torch_big_blue/torch_big_blue_6.png'            ]} />
             <AnimatedDecoration title="Torch Small" frames={[
               '/assets/Decorations/Animated Decorations/torch_small/torch_small_1.png',
               '/assets/Decorations/Animated Decorations/torch_small/torch_small_2.png',
               '/assets/Decorations/Animated Decorations/torch_small/torch_small_3.png',
               '/assets/Decorations/Animated Decorations/torch_small/torch_small_4.png',
               '/assets/Decorations/Animated Decorations/torch_small/torch_small_5.png',
-              '/assets/Decorations/Animated Decorations/torch_small/torch_small_6.png',
-              '/assets/Decorations/Animated Decorations/torch_small/torch_small_background.png',
+              '/assets/Decorations/Animated Decorations/torch_small/torch_small_6.png'
             ]} />
             <AnimatedDecoration title="Torch Small Blue" frames={[
               '/assets/Decorations/Animated Decorations/torch_small_blue/torch_small_blue_1.png',
@@ -339,18 +471,9 @@ function Home() {
               '/assets/Decorations/Animated Decorations/torch_small_blue/torch_small_blue_3.png',
               '/assets/Decorations/Animated Decorations/torch_small_blue/torch_small_blue_4.png',
               '/assets/Decorations/Animated Decorations/torch_small_blue/torch_small_blue_5.png',
-              '/assets/Decorations/Animated Decorations/torch_small_blue/torch_small_blue_6.png',
-              '/assets/Decorations/Animated Decorations/torch_small_blue/torch_small_blue_background.png',
+              '/assets/Decorations/Animated Decorations/torch_small_blue/torch_small_blue_6.png'
             ]} />
             </div>
-
-          <h2>HUD</h2>
-          <div className='imagenes-hud'>
-            <img src="/assets/HUD/bar.png" alt="HUD bar" className='hud'/>
-            <img src="/assets/HUD/bar_background.png" alt="HUD bar_background" className='hud'/>
-            <img src="/assets/HUD/health_bar.png" alt="HUD health_bar" className='hud'/>
-            <img src="/assets/HUD/weapon_icon.png" alt="HUD weapon_icon" className='hud'/>
-          </div>
 
           <h2>Tiles</h2>
           <div className='imagenes-tiles'>
