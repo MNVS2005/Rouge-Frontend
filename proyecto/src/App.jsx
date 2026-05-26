@@ -258,8 +258,7 @@ function Home() {
       <img src="/assets/Values/Restos_de_slime.PNG" alt="Restos de Slime" />
       <div>
         <h4>Restos de Slime</h4>
-        <p>Moneda básica que sueltan los slimes al ser derrotados. 
-        Abunda en las primeras zonas y sirve para compras menores.</p>
+        <p>Moneda básica que sueltas por el castillo. Son abundantes por el castillos con solo el valor de 1.</p>
       </div>
     </div>
 
@@ -267,8 +266,7 @@ function Home() {
       <img src="/assets/Values/Trozo_de_cobre.PNG" alt="Trozo de Cobre" />
       <div>
         <h4>Trozo de Cobre</h4>
-        <p>Moneda intermedia obtenida al vencer enemigos de mayor nivel. 
-        Necesaria para mejorar equipamiento básico.</p>
+        <p>Moneda intermedia que son un poco más valiosas que los restos de slime. se pueden encontrar por el castillo.</p>
       </div>
     </div>
 
@@ -276,11 +274,16 @@ function Home() {
       <img src="/assets/Values/Trozo_de_oro.PNG" alt="Trozo de Oro" />
       <div>
         <h4>Trozo de Oro</h4>
-        <p>La moneda más valiosa del juego. Solo la obtienen los más hábiles 
-        al derrotar jefes y superar desafíos difíciles.</p>
+        <p>Uno de los minerales mas valiosos del castillo. Se pueden encontrar en zonas mas profundas.</p>
       </div>
     </div>
-
+    <div className="coin-row">
+      <img src="/assets/Values/Ojo_de_Ahriman.PNG" alt="Ojo de Ahriman" />
+      <div>
+        <h4>Ojo de Ahriman</h4>
+        <p>Moneda legendaria solo unos pocos pudieron obtener. Muy rara y valiosa, utilizada para comprar los objetos más poderosos.</p>
+      </div>
+    </div>
   </div>
 
   </div>
