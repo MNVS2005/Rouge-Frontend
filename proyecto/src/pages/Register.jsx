@@ -23,7 +23,7 @@ function Register() {
         email,
         password
       });
-      alert("Usuario registrado ✅");
+      alert("Usuario registrado ✅\nEn breve recibirás un email de bienvenida.");
       navigate("/login");
     } catch (error) {
   if (error.response && error.response.data) {

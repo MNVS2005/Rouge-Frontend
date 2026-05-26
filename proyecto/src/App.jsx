@@ -114,19 +114,6 @@ function Home() {
         <p className='description'>Es un videojuego de Rougelike y metroidvania, donde cada elección importa. Explora, combate y descubre una historia que se adapta a tu forma de jugar.</p>
         <h2>¡Únete a la Aventura!</h2>
         <p>Prepárate para una experiencia de juego inolvidable. ¡Descubre Rouge y sumérgete en un mundo donde cada decisión cuenta!</p>
-
-        <br/>
-        <div className='video'> 
-          <iframe 
-          width="560" 
-          height="315" 
-          src="https://www.youtube.com/embed/3Z6bX8K3YyY" 
-          title="YouTube video player" 
-          frameBorder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowFullScreen>
-          </iframe>
-        </div>
         <section className='WAW?'>
           <h2>¿Quienes somos?</h2>
           <p>Somos dos estudiantes del grado superior de desarrollo de aplicaciones web en el instituto Puig Castellar decidimos crear Rouge como nuestro proyecto final.</p>
@@ -138,11 +125,6 @@ function Home() {
   <h2>Características Principales</h2>
 
   <div className="features-table">
-
-    <div className="feature-title">Mundo Generado Proceduralmente</div>
-    <div className="feature-desc">
-      Cada partida es un mapa único, garantizando una experiencia fresca y desafiante.
-    </div>
 
     <div className="feature-title">Gráficos Retro Modernos</div>
     <div className="feature-desc">
