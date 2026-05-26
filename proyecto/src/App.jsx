@@ -75,8 +75,9 @@ function Home() {
         <ul className="nav-links">
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#caracteristicas">Características</a></li>
+          <li><a href="#details">Detalles</a></li>
           <li><a href="#download">Descargar</a></li>
-          <li><a href="#design">Design</a></li>
+          <li><a href="#design">Diseño</a></li>
         </ul>
       </nav>
 
@@ -120,177 +121,194 @@ function Home() {
           <p>Esta idea surgio a nuestra inspiracion en los juegos estilo Rougelike, uno de nuestros referentes el aclamado The binding of Isaac.</p>
           <p>Queremos crear un juego que combine la emoción de los juegos de acción con la profundidad de los juegos de rol, ofreciendo a los jugadores una experiencia única y desafiante.</p>         
         </section>
+        <br/>
+        <h2>Historia</h2>
+
+        <div className="story">
+          <p>Dicen que es un caballero que se despierta un día a las afueras de un castillo del que no puede escapar… y que su único destino es vagar por él, muriendo una y otra vez a manos de monstruos.</p>
+          <p>Nadie recuerda su nombre. Ni siquiera él.</p>
+          <p>Cuando abre los ojos por primera vez, el cielo está cubierto por nubes inmóviles, como si el tiempo se hubiera detenido. Frente a él se alza un castillo imposible: torres torcidas, murallas que parecen respirar y puertas que se abren solas, invitándolo a entrar.</p>
+
+          <p className="story-beat">No tiene elección.</p>
+
+          <p>Al cruzar el umbral, siente cómo algo se rompe dentro de él… y también cómo algo se ata. El castillo está vivo. Cada sala es distinta, cambiante. Pasillos que no llevan al mismo lugar dos veces, escaleras que se retuercen como serpientes, y sombras que observan desde rincones donde no debería haber nada.</p>
+          <p>Pronto aparecen los primeros monstruos: criaturas deformes, antiguos guardianes, ecos de guerreros que fracasaron antes que él.</p>
+
+          <p className="story-beat">Muere rápido. Un golpe. Un error. Oscuridad.</p>
+
+          <p>Y entonces… despierta otra vez. De nuevo en las afueras del castillo. Con su cuerpo intacto, pero su mente un poco más fragmentada.</p>
+        </div>
       <div id="caracteristicas" className="Caracteristicas">
 
-  <h2>Características Principales</h2>
+        <h2>Características Principales</h2>
 
-  <div className="features-table">
+        <div className="features-table">
 
 
-    <div className="feature-title">Gráficos Retro Modernos</div>
-    <div className="feature-desc">
-      Estilo visual pixel art con efectos modernos que crean una atmósfera única y envolvente.
-    </div>
+          <div className="feature-title">Gráficos Retro Modernos</div>
+          <div className="feature-desc">
+            Estilo visual pixel art con efectos modernos que crean una atmósfera única y envolvente.
+          </div>
 
-    <div className="feature-title">Combate Dinámico</div>
-    <div className="feature-desc">
-      Sistema de combate fluido que combina ataques cuerpo a cuerpo y diferentes estilos desbloqueables.
-    </div>
+          <div className="feature-title">Combate Dinámico</div>
+          <div className="feature-desc">
+            Sistema de combate fluido que combina ataques cuerpo a cuerpo y diferentes estilos desbloqueables.
+          </div>
 
-    <div className="feature-title">Progresión del Personaje</div>
-    <div className="feature-desc">
-      Personaliza tu estilo de juego con mejoras y habilidades únicas.
-    </div>
+          <div className="feature-title">Progresión del Personaje</div>
+          <div className="feature-desc">
+            Personaliza tu estilo de juego con mejoras y habilidades únicas.
+          </div>
 
-    <div className="feature-title">Exploración Profunda</div>
-    <div className="feature-desc">
-      Descubre secretos ocultos y áreas desbloqueables.
-    </div>
+          <div className="feature-title">Exploración Profunda</div>
+          <div className="feature-desc">
+            Descubre secretos ocultos y áreas desbloqueables.
+          </div>
 
-  </div>
+        </div>
 
-</div>
-<br/>
-  <h2>Detalles sobre el Juego</h2>
-  <div className="game-details">
-  <p>Este apartado te explicaremos los aspectos más interesantes del juego.</p>  
-  <br/>
-  <h3>Controles</h3>
-   <div className="controls-list">
-    <div className="control-row">
-      <img src="/assets/Controls/wasd.png" alt="Teclas WASD" />
-      <div>
-        <h4>Movimiento</h4>
-        <p>Usa las teclas <strong>W A S D</strong> para mover al personaje por el escenario.</p>
+      </div>
+    <br/>
+    <h2 id="details">Detalles sobre el Juego</h2>
+    <div className="game-details">
+    <p>Este apartado te explicaremos los aspectos más interesantes del juego.</p>  
+    <br/>
+    <h3>Controles</h3>
+    <div className="controls-list">
+      <div className="control-row">
+        <img src="/assets/Controls/wasd.png" alt="Teclas WASD" />
+        <div>
+          <h4>Movimiento</h4>
+          <p>Usa las teclas <strong>W A S D</strong> para mover al personaje por el escenario.</p>
+        </div>
+      </div>
+
+      <div className="control-row">
+        <img src="/assets/Controls/space_key_s.png" alt="Barra espaciadora" />
+        <div>
+          <h4>Saltar</h4>
+          <p>Pulsa la <strong>barra espaciadora</strong> para hacer saltar al personaje.</p>
+        </div>
+      </div>
+
+      <div className="control-row">
+        <img src="/assets/Controls/letter_e.png" alt="Tecla E" />
+        <div>
+          <h4>Pausar/Tienda</h4>
+          <p>Pulsa <strong>E</strong> para pausar el juego o acceder a la tienda.</p>
+        </div>
+      </div>
+
+      <div className="control-row">
+        <img src="/assets/Controls/letter_j.png" alt="Tecla J" />
+        <div>
+          <h4>Atacar</h4>
+          <p>Pulsa <strong>J</strong> para realizar un ataque o acción de combate.</p>
+        </div>
       </div>
     </div>
+    <br/>
+    <h3>Enemigos</h3>
+    <p>En Rouge, te enfrentarás a una variedad de enemigos, cada uno con sus propias 
+    habilidades y patrones de ataque. Desde los básicos hasta los jefes finales, cada 
+    encuentro será un desafío único que pondrá a prueba tus habilidades y estrategias.</p>
 
-    <div className="control-row">
-      <img src="/assets/Controls/space_key_s.png" alt="Barra espaciadora" />
-      <div>
-        <h4>Saltar</h4>
-        <p>Pulsa la <strong>barra espaciadora</strong> para hacer saltar al personaje.</p>
-      </div>
-    </div>
-
-    <div className="control-row">
-      <img src="/assets/Controls/letter_e.png" alt="Tecla E" />
-      <div>
-        <h4>Pausar/Tienda</h4>
-        <p>Pulsa <strong>E</strong> para pausar el juego o acceder a la tienda.</p>
-      </div>
-    </div>
-
-    <div className="control-row">
-      <img src="/assets/Controls/letter_j.png" alt="Tecla J" />
-      <div>
-        <h4>Atacar</h4>
-        <p>Pulsa <strong>J</strong> para realizar un ataque o acción de combate.</p>
-      </div>
-    </div>
-  </div>
-  <br/>
-  <h3>Enemigos</h3>
-  <p>En Rouge, te enfrentarás a una variedad de enemigos, cada uno con sus propias 
-  habilidades y patrones de ataque. Desde los básicos hasta los jefes finales, cada 
-  encuentro será un desafío único que pondrá a prueba tus habilidades y estrategias.</p>
-
-<div className="enemies-list">
-
-  <div className="enemy-row">
-    <img src="/assets/Characters/enemies/Golem.PNG" alt="Golem" />
-    <div>
-      <h4>Golem</h4>
-      <p>Una criatura de piedra de movimientos lentos pero golpes devastadores. 
-      Resiste el daño físico, busca sus puntos débiles.</p>
-    </div>
-  </div>
-
-  <div className="enemy-row">
-    <img src="/assets/Characters/enemies/GolemFuerte.PNG" alt="Golem Fuerte" />
-    <div>
-      <h4>Golem Fuerte</h4>
-      <p>Versión reforzada del Golem. Mayor armadura y ataques en área que 
-      sacuden el suelo a su alrededor.</p>
-    </div>
-  </div>
-
-  <div className="enemy-row">
-    <img src="/assets/Characters/enemies/JefeSlime.PNG" alt="Jefe Slime" />
-    <div>
-      <h4>Jefe Slime</h4>
-      <p>Jefe de la guarida de slimes. Doble el tamaño y con un poco más de vida que de costumbre. Cuidado que este si que pega.</p>
-    </div>
-  </div>
-
-  <div className="enemy-row">
-    <img src="/assets/Characters/enemies/ReyGolem.PNG" alt="Rey Golem" />
-    <div>
-      <h4>Rey Golem</h4>
-      <p>El monarca de piedra. Jefe final de gran tamaño con ataques sísmicos 
-      capaces de atravesar toda la pantalla.</p>
-    </div>
-  </div>
-
-  <div className="enemy-row">
-    <img src="/assets/Characters/enemies/ReySlime.PNG" alt="Rey Slime" />
-    <div>
-      <h4>Rey Slime</h4>
-      <p>La masa gelatinosa definitiva. Triple el tamaño y con más vida que los slimes normales.</p>
-    </div>
-  </div>
+  <div className="enemies-list">
 
     <div className="enemy-row">
-      <img src="/assets/Characters/enemies/Captura3.PNG" alt="Enemigo" />
+      <img src="/assets/Characters/enemies/Golem.PNG" alt="Golem" />
       <div>
-        <h4>Slime</h4>
-        <p>Un moco pequeño y pegajoso. Cuidado al tocarlo que puede ser peligroso. Facil de vencer.</p>
-      </div>
-    </div>
-  </div>
-  <br/>
-  <h3>Monedas</h3>
-  <p>Durante la aventura encontraras diferentes monedas por el castillo que te ayudaran a comprar mejoras dentro de la tienda</p>
-
-  <div className="coins-list">
-
-    <div className="coin-row">
-      <img src="/assets/Values/Restos_de_slime.PNG" alt="Restos de Slime" />
-      <div>
-        <h4>Restos de Slime</h4>
-        <p>Moneda básica que sueltas por el castillo. Son abundantes por el castillos con solo el valor de 1.</p>
+        <h4>Golem</h4>
+        <p>Una criatura de piedra de movimientos lentos pero golpes devastadores. 
+        Resiste el daño físico, busca sus puntos débiles.</p>
       </div>
     </div>
 
-    <div className="coin-row">
-      <img src="/assets/Values/Trozo_de_cobre.PNG" alt="Trozo de Cobre" />
+    <div className="enemy-row">
+      <img src="/assets/Characters/enemies/GolemFuerte.PNG" alt="Golem Fuerte" />
       <div>
-        <h4>Trozo de Cobre</h4>
-        <p>Moneda intermedia que son un poco más valiosas que los restos de slime. se pueden encontrar por el castillo.</p>
+        <h4>Golem Fuerte</h4>
+        <p>Versión reforzada del Golem. Mayor armadura y ataques en área que 
+        sacuden el suelo a su alrededor.</p>
       </div>
     </div>
 
-    <div className="coin-row">
-      <img src="/assets/Values/Trozo_de_oro.PNG" alt="Trozo de Oro" />
+    <div className="enemy-row">
+      <img src="/assets/Characters/enemies/JefeSlime.PNG" alt="Jefe Slime" />
       <div>
-        <h4>Trozo de Oro</h4>
-        <p>Uno de los minerales mas valiosos del castillo. Se pueden encontrar en zonas mas profundas.</p>
+        <h4>Jefe Slime</h4>
+        <p>Jefe de la guarida de slimes. Doble el tamaño y con un poco más de vida que de costumbre. Cuidado que este si que pega.</p>
       </div>
     </div>
-    <div className="coin-row">
-      <img src="/assets/Values/Ojo_de_Ahriman.PNG" alt="Ojo de Ahriman" />
+
+    <div className="enemy-row">
+      <img src="/assets/Characters/enemies/ReyGolem.PNG" alt="Rey Golem" />
       <div>
-        <h4>Ojo de Ahriman</h4>
-        <p>Moneda legendaria solo unos pocos pudieron obtener. Muy rara y valiosa, utilizada para comprar los objetos más poderosos.</p>
+        <h4>Rey Golem</h4>
+        <p>El monarca de piedra. Jefe final de gran tamaño con ataques sísmicos 
+        capaces de atravesar toda la pantalla.</p>
       </div>
     </div>
-  </div>
+
+    <div className="enemy-row">
+      <img src="/assets/Characters/enemies/ReySlime.PNG" alt="Rey Slime" />
+      <div>
+        <h4>Rey Slime</h4>
+        <p>La masa gelatinosa definitiva. Triple el tamaño y con más vida que los slimes normales.</p>
+      </div>
+    </div>
+
+      <div className="enemy-row">
+        <img src="/assets/Characters/enemies/Captura3.PNG" alt="Enemigo" />
+        <div>
+          <h4>Slime</h4>
+          <p>Un moco pequeño y pegajoso. Cuidado al tocarlo que puede ser peligroso. Facil de vencer.</p>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <h3>Monedas</h3>
+    <p>Durante la aventura encontraras diferentes monedas por el castillo que te ayudaran a comprar mejoras dentro de la tienda</p>
+
+    <div className="coins-list">
+
+      <div className="coin-row">
+        <img src="/assets/Values/Restos_de_slime.PNG" alt="Restos de Slime" />
+        <div>
+          <h4>Restos de Slime</h4>
+          <p>Moneda básica que sueltas por el castillo. Son abundantes por el castillos con solo el valor de 1.</p>
+        </div>
+      </div>
+
+      <div className="coin-row">
+        <img src="/assets/Values/Trozo_de_cobre.PNG" alt="Trozo de Cobre" />
+        <div>
+          <h4>Trozo de Cobre</h4>
+          <p>Moneda intermedia que son un poco más valiosas que los restos de slime. se pueden encontrar por el castillo.</p>
+        </div>
+      </div>
+
+      <div className="coin-row">
+        <img src="/assets/Values/Trozo_de_oro.PNG" alt="Trozo de Oro" />
+        <div>
+          <h4>Trozo de Oro</h4>
+          <p>Uno de los minerales mas valiosos del castillo. Se pueden encontrar en zonas mas profundas.</p>
+        </div>
+      </div>
+      <div className="coin-row">
+        <img src="/assets/Values/Ojo_de_Ahriman.PNG" alt="Ojo de Ahriman" />
+        <div>
+          <h4>Ojo de Ahriman</h4>
+          <p>Moneda legendaria solo unos pocos pudieron obtener. Muy rara y valiosa, utilizada para comprar los objetos más poderosos.</p>
+        </div>
+      </div>
+    </div>
 
   </div>
       <br/>
       </section>
       <section className='download'>
-        <h2>¡Descarga Rouge Ahora!</h2>
+        <h2 id="download">¡Descarga Rouge Ahora!</h2>
         <p>Disponible para PC y Mac. ¡No pierdas la oportunidad de vivir esta aventura única!</p>
         <button className='download-button' onClick={handleDownload}>
           Descargar
@@ -298,7 +316,7 @@ function Home() {
       </section>
 
       <section className='design'>
-        <h2>Diseño y Estilo Visual</h2>
+        <h2 id="design">Diseño y Estilo Visual</h2>
         <p>Rouge presenta un estilo visual pixel art que combina la nostalgia de los juegos retro con efectos modernos para crear una atmósfera única y envolvente. Cada entorno está cuidadosamente diseñado para ofrecer una experiencia visual rica y detallada, desde las oscuras mazmorras hasta los vibrantes paisajes exteriores.</p>
         <p>Vamos a usar unos assets de diseño para crear un ambiente inmersivo.</p>
         <div className='design-images'>
