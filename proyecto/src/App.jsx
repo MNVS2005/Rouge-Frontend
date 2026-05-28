@@ -8,36 +8,6 @@ import { BrowserRouter,Routes,Route, Link } from 'react-router-dom';
 
 
 
-const handleDownload = async () => {
-  const [isAuth, setIsAuth] = useState(false);
-  useEffect(() => {
-    const auth = localStorage.getItem("isAuth");
-    if (auth === "true") {
-      setIsAuth(true);
-    }
-  }, []);
-  try {
-    const statusRes = await fetch(`${process.env.REACT_APP_API_URL}/api/download/status`);
-    
-    const status = await statusRes.json();
-
-    if (!status.available) {
-      alert('El archivo de descarga aún no está disponible. ¡Vuelve pronto!');
-      return;
-    }
-    if (!isAuth) {
-      alert('Debes iniciar sesión para descargar el juego. ¡Regístrate o inicia sesión para acceder a la descarga!');
-      return;
-    }
-    // Simplemente abrimos la URL del backend, que redirige al archivo externo
-    window.location.href = `${process.env.REACT_APP_API_URL}/api/download/game`;
-
-  } catch (error) {
-    console.error('Error en la descarga:', error);
-    alert('No se pudo conectar con el servidor. Asegúrate de que el backend está activo.');
-  }
-
-};
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -81,6 +51,29 @@ function Home() {
       setUser(currentUser);
     }
   }, []);
+
+  const handleDownload = async () => {
+    if (!isAuth) {
+      alert("Debes iniciar sesión para descargar el juego.");
+      return;
+    }
+
+    try {
+      const statusRes = await fetch(`${process.env.REACT_APP_API_URL}/api/download/status`);
+      const status = await statusRes.json();
+
+      if (!status.available) {
+        alert("El archivo de descarga aún no está disponible. ¡Vuelve pronto!");
+        return;
+      }
+
+      window.location.href = `${process.env.REACT_APP_API_URL}/api/download/game`;
+    } catch (error) {
+      console.error("Error en la descarga:", error);
+      alert("No se pudo conectar con el servidor. Asegúrate de que el backend está activo.");
+    }
+  };
+  
   return (
     <div className="App">
       <nav className="navbar">
@@ -323,7 +316,7 @@ function Home() {
         <h2 id="download">¡Descarga Rouge Ahora!</h2>
         <p>Disponible para PC y Mac. ¡No pierdas la oportunidad de vivir esta aventura única!</p>
         <button className='download-button' onClick={handleDownload}>
-          Descargar
+          {isAuth ? "Descargar" : "Inicia sesión para descargar"}
         </button>
       </section>
 
