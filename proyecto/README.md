@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+﻿# Rouge - Proyecto Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción
 
-## Available Scripts
+Rouge es un frontend desarrollado en React para un videojuego estilo roguelike y metroidvania. El proyecto presenta una landing page interactiva con información del juego, sistema de autenticación, descarga protegida y un panel de administración para gestionar archivos y ver actividad.
 
-In the project directory, you can run:
+El objetivo del proyecto es mostrar la presentación del juego, permitir el registro de usuarios, iniciar sesión, habilitar la descarga del juego solo para usuarios autenticados y ofrecer un panel administrativo para controlar la entrega del archivo de juego.
 
-### `npm start`
+## Características principales
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Página principal con hero, historia, características, controles, enemigos, monedas y diseño visual.
+- Autenticación de usuarios con registro e inicio de sesión.
+- Descarga del juego disponible solo para usuarios autenticados.
+- Panel administrativo protegido para usuarios con rol `ROLE_ADMIN`.
+- Conexión a backend a través de `axios` con token Bearer.
+- Uso de React Router para rutas de la aplicación.
+- Error Boundary para capturar fallos en la UI.
+- Interfaz de usuario con modales personalizados para notificaciones.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Estructura del proyecto
 
-### `npm test`
+- `src/App.jsx`: componente principal. Define la lógica del home, manejo de descarga y rutas.
+- `src/pages/login.jsx`: pantalla de inicio de sesión.
+- `src/pages/Register.jsx`: pantalla de registro de usuario.
+- `src/pages/Admin.jsx`: panel administrativo con actividad, filtros y gestión de archivo.
+- `src/components/Modal.jsx`: componente modal reutilizable para mensajes de éxito/error.
+- `src/axios.js`: instancia de Axios con baseURL y token Authorization.
+- `public/assets/`: carpeta de recursos gráficos y sprites.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Rutas disponibles
 
-### `npm run build`
+- `/` : página principal.
+- `/login` : formulario de inicio de sesión.
+- `/register` : formulario de registro de usuario.
+- `/admin` : panel administrativo (solo para administradores).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Integración con backend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+El frontend usa la variable de entorno `REACT_APP_API_URL` para conectar con el backend. Asegúrate de definirla en un archivo `.env` en la raíz del proyecto:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```env
+REACT_APP_API_URL=http://localhost:8080
+```
 
-### `npm run eject`
+### Endpoints usados
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `POST /api/auth/login`: iniciar sesión.
+- `POST /api/auth/signup`: registrar nuevo usuario.
+- `GET /api/download/status`: comprobar si el archivo de descarga está disponible.
+- `GET /api/download/game`: descargar el juego.
+- `GET /api/admin/activity`: obtener actividad de usuarios (panel admin).
+- `POST /api/download/upload`: subir el archivo de juego desde el panel admin.
+- `DELETE /api/download/game`: eliminar el archivo de descarga.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Requisitos
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Node.js 18+ recomendado.
+- NPM o Yarn.
+- Backend funcionando y accesible desde la URL configurada en `REACT_APP_API_URL`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Instalación
 
-## Learn More
+1. Abrir terminal en la carpeta `proyecto`.
+2. Ejecutar:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Configurar variable de entorno en `.env`.
+4. Iniciar la app:
 
-### Code Splitting
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+5. Abrir el navegador en `http://localhost:3000`.
 
-### Analyzing the Bundle Size
+## Scripts útiles
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- `npm start` - inicia el servidor de desarrollo.
+- `npm run build` - genera la versión optimizada para producción.
+- `npm test` - ejecuta el runner de pruebas.
+- `npm run eject` - expone la configuración de Create React App.
 
-### Making a Progressive Web App
+## Uso del panel administrativo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Solo usuarios con rol `ROLE_ADMIN` pueden acceder a `/admin`.
+- El panel muestra una lista de actividades del sistema.
+- Permite subir un archivo de juego y eliminarlo.
+- Comprueba el estado del archivo de descarga antes de permitir descargas.
 
-### Advanced Configuration
+## Experiencia de usuario
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Usuario no autenticado: puede ver la presentación del juego y la información.
+- Usuario autenticado: puede iniciar sesión, ver su nombre y descargar el juego.
+- Administrador: puede acceder al panel con métricas y administración del archivo.
 
-### Deployment
+## Detalles del juego
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Rouge es un juego inspirado en la estética retro pixel art y en la jugabilidad roguelike. Incluye:
 
-### `npm run build` fails to minify
+- Combate dinámico.
+- Exploración de castillo con salas cambiantes.
+- Enemigos variados, incluyendo Golem, Slime, Jefe Slime y Rey Golem.
+- Monedas y recursos como Restos de Slime, Trozo de Cobre, Trozo de Oro y Ojo de Ahriman.
+- Controles de movimiento (`WASD`), salto (`Space`), interacción/pausa (`E`) y ataque (`J`).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Notas
+
+- Esta aplicación fue creada con Create React App.
+- Los assets se cargan desde la carpeta `public/assets`.
+- El componente `Modal` usa estado local para mostrar mensajes de confirmación y error.
+- El componente `ErrorBoundary` evita que fallos en el render bloqueen toda la aplicación.
+
+## Mejoras futuras sugeridas
+
+- Añadir validación más robusta en formularios de registro e inicio de sesión.
+- Incluir mensajes en español más consistentes y accesibles.
+- Implementar un sistema de roles completo con permisos en frontend.
+- Agregar más escenarios, enemigos y mejoras del juego.
+- Añadir pruebas unitarias y de integración para los componentes principales.
+
+---
+
+### Autor
+
+Proyecto final de grado superior de Desarrollo de Aplicaciones Web en el instituto Puig Castellar.
