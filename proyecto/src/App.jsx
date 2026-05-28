@@ -5,7 +5,7 @@ import Login from './pages/login';
 import Register from './pages/Register';
 import { useEffect, useState } from "react";
 import { BrowserRouter,Routes,Route, Link } from 'react-router-dom';
-
+import Modal from './components/Modal';
 
 
 
@@ -41,6 +41,11 @@ class ErrorBoundary extends React.Component {
 function Home() {
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState("");
+  const [modal , setModal] = useState({message: "", type: ""});
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const showModal = (message, type) => setModal({message, type});
+  const closeModal = () => setModal({message: "", type: ""});
 
   useEffect(() => {
     const auth = localStorage.getItem("isAuth");
@@ -54,7 +59,7 @@ function Home() {
 
   const handleDownload = async () => {
     if (!isAuth) {
-      alert("Debes iniciar sesión para descargar el juego.");
+      showModal("Debes iniciar sesión para descargar el juego.", "error");
       return;
     }
 
@@ -63,29 +68,45 @@ function Home() {
       const status = await statusRes.json();
 
       if (!status.available) {
-        alert("El archivo de descarga aún no está disponible. ¡Vuelve pronto!");
+        showModal("El archivo de descarga aún no está disponible. ¡Vuelve pronto!", "error");
         return;
       }
 
       window.location.href = `${process.env.REACT_APP_API_URL}/api/download/game`;
     } catch (error) {
       console.error("Error en la descarga:", error);
-      alert("No se pudo conectar con el servidor. Asegúrate de que el backend está activo.");
+      showModal("No se pudo conectar con el servidor. Asegúrate de que el backend está activo.", "error");
     }
   };
   
   return (
+    
     <div className="App">
       <nav className="navbar">
-        <ul className="nav-links">
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#caracteristicas">Características</a></li>
-          <li><a href="#details">Detalles</a></li>
-          <li><a href="#download">Descargar</a></li>
-          <li><a href="#design">Diseño</a></li>
-        </ul>
-      </nav>
 
+        <button
+          className={`hamburger-btn ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Menú"
+        >
+        <span /><span /><span />
+        </button>
+        
+    </nav>
+    {menuOpen && (
+      <div className="menu-overlay" onClick={() => setMenuOpen(false)} />
+      )}
+      <div className={`slide-menu ${menuOpen ? "slide-menu--open" : ""}`}>
+        <p className="slide-menu-title">Navegación</p>
+        <ul>
+          <li><a href="#faq"           onClick={() => setMenuOpen(false)}>FAQ</a></li>
+          <li><a href="#caracteristicas" onClick={() => setMenuOpen(false)}>Características</a></li>
+          <li><a href="#details"       onClick={() => setMenuOpen(false)}>Detalles</a></li>
+          <li><a href="#download"      onClick={() => setMenuOpen(false)}>Descargar</a></li>
+          <li><a href="#design"        onClick={() => setMenuOpen(false)}>Diseño</a></li>
+        </ul>
+      </div>
+        <Modal message={modal.message} type={modal.type} onClose={closeModal} />
       <section className="hero">
         {!isAuth && (
         <div className="info-box">

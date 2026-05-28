@@ -2,10 +2,17 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import api from "../axios";
 import "../App.css";
-
+import Modal from "../components/Modal";
 function Register() {
   const navigate = useNavigate();
+  const [modal, setModal] = useState({ message: "", type: "" });
 
+  const showModal = (message, type) => {
+    setModal({ message, type });
+  };
+  const closeModal = () => {
+    setModal({ message: "", type: "" });
+  };
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +20,7 @@ function Register() {
 
   const handleRegister = async () => {
     if (password !== confirm) {
-      alert("Las contraseñas no coinciden ❌");
+      showModal("Las contraseñas no coinciden ❌", "error");
       return;
     }
 
@@ -23,24 +30,25 @@ function Register() {
         email,
         password
       });
-      alert("Usuario registrado ✅\nEn breve recibirás un email de bienvenida.");
+      showModal("Usuario registrado ✅\nEn breve recibirás un email de bienvenida.", "success");
       navigate("/login");
     } catch (error) {
   if (error.response && error.response.data) {
-    alert("Error: " + error.response.data);
+    showModal("Error: " + error.response.data, "error");
   } else {
-    alert("Error al registrar usuario ❌");
+    showModal("Error al registrar usuario", "error");
   }
 }
   };
 
   return (
+    
     <div className="auth-page">
+        <Modal message={modal.message} type={modal.type} onClose={closeModal} />
       <div className="auth-card">
         <h2>Registrarse</h2>
         <label>Nombre de usuario</label>
         <input type="text" onChange={(e) => setUsername(e.target.value)} />
-
         <label>Email</label>
         <input type="email" onChange={(e) => setEmail(e.target.value)} />
 
@@ -53,7 +61,7 @@ function Register() {
         <div className="auth-actions">
           <button
             className="btn-cancel"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/")}
           >
             Cancel
           </button>

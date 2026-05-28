@@ -2,12 +2,21 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import api from "../axios";
 import "../App.css";
+import Modal from "../components/Modal";
 
 function Login() {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [modal, setModal] = useState({ message: "", type: "" });
+
+  const showModal = (message, type) => {
+    setModal({ message, type });
+  };
+  const closeModal = () => {
+    setModal({ message: "", type: "" });
+  };
 
   const handleLogin = async () => {
   try {
@@ -23,7 +32,7 @@ function Login() {
     localStorage.setItem("isAuth", "true");
     localStorage.setItem("currentUser", username);
 
-    alert("Login correcto ✅");
+    showModal("Login correcto ", "success");
 
     // Redirigir según rol
     if (roles.includes("ROLE_ADMIN")) {
@@ -34,15 +43,16 @@ function Login() {
 
   } catch (error) {
     if (error.response && error.response.data) {
-      alert("Error: " + error.response.data);
+      showModal("Error: " + error.response.data, "error");
     } else {
-      alert("Credenciales incorrectas ❌");
+      showModal("Credenciales incorrectas ", "error");
     }
   }
 };
 
   return (
     <div className="auth-page">
+      <Modal message={modal.message} type={modal.type} onClose={closeModal} />
       <div className="auth-card">
         <h2>Iniciar sesión</h2>
 
