@@ -9,15 +9,26 @@ import { BrowserRouter,Routes,Route, Link } from 'react-router-dom';
 
 
 const handleDownload = async () => {
+  const [isAuth, setIsAuth] = useState(false);
+  useEffect(() => {
+    const auth = localStorage.getItem("isAuth");
+    if (auth === "true") {
+      setIsAuth(true);
+    }
+  }, []);
   try {
     const statusRes = await fetch(`${process.env.REACT_APP_API_URL}/api/download/status`);
+    
     const status = await statusRes.json();
 
     if (!status.available) {
       alert('El archivo de descarga aún no está disponible. ¡Vuelve pronto!');
       return;
     }
-
+    if (!isAuth) {
+      alert('Debes iniciar sesión para descargar el juego. ¡Regístrate o inicia sesión para acceder a la descarga!');
+      return;
+    }
     // Simplemente abrimos la URL del backend, que redirige al archivo externo
     window.location.href = `${process.env.REACT_APP_API_URL}/api/download/game`;
 
@@ -25,6 +36,7 @@ const handleDownload = async () => {
     console.error('Error en la descarga:', error);
     alert('No se pudo conectar con el servidor. Asegúrate de que el backend está activo.');
   }
+
 };
 
 class ErrorBoundary extends React.Component {
