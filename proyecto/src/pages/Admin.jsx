@@ -25,10 +25,8 @@ function Admin() {
   const [sortField, setSortField] = useState("timestamp");
   const [sortDir, setSortDir] = useState("desc");
 
-  // Upload / descarga
-  const [gameFile, setGameFile] = useState(null);
-  const [uploadStatus, setUploadStatus] = useState(null);
-  const [uploading, setUploading] = useState(false);
+  
+ 
 
   // 🔐 Validar acceso
   useEffect(() => {
@@ -41,7 +39,6 @@ function Admin() {
     }
 
     fetchActivities();
-    fetchGameStatus();
   }, [navigate]);
 
   // Reset página al cambiar filtros
@@ -71,56 +68,15 @@ function Admin() {
     return () => controller.abort();
   }, []);
 
-  // 📦 Comprobar si hay archivo de descarga
-  const fetchGameStatus = async () => {
-    try {
-      const res = await api.get("/api/download/status");
-      setUploadStatus(res.data);
-    } catch (err) {
-      console.error("Error al comprobar el archivo:", err);
-    }
-  };
+  
 
-  // ⬆️ Subir archivo
-  const handleUpload = async () => {
-    if (!gameFile) return;
-    setUploading(true);
-    try {
-      const formData = new FormData();
-      formData.append("file", gameFile);
-      await api.post("/api/download/upload", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-      alert("✅ Archivo subido correctamente");
-      setGameFile(null);
-      fetchGameStatus();
-    } catch (err) {
-      console.error(err);
-      alert("❌ Error al subir el archivo");
-    } finally {
-      setUploading(false);
-    }
-  };
-
-  // 🗑️ Eliminar archivo
-  const handleDeleteGame = async () => {
-    if (!window.confirm("¿Seguro que quieres eliminar el archivo de descarga?")) return;
-    try {
-      await api.delete("/api/download/game");
-      alert("🗑️ Archivo eliminado");
-      fetchGameStatus();
-    } catch (err) {
-      alert("Error al eliminar el archivo");
-    }
-  };
-
-  // 🚪 Logout
+  // Logout
   const handleLogout = () => {
     localStorage.clear();
     navigate("/login");
   };
 
-  // 🔍 Filtrado
+  // Filtrado
   const filtered = useMemo(() => {
     let result = activities;
     if (search.trim()) {
@@ -136,7 +92,7 @@ function Admin() {
     return result;
   }, [activities, search, filterStatus]);
 
-  // ↕️ Ordenación
+  // Ordenación
   const sorted = useMemo(() => {
     return [...filtered].sort((a, b) => {
       let valA = a[sortField];
@@ -154,7 +110,7 @@ function Admin() {
     });
   }, [filtered, sortField, sortDir]);
 
-  // 📄 Paginación
+  // Paginación
   const totalPages = Math.max(1, Math.ceil(sorted.length / pageSize));
   const paginated = useMemo(() => {
     const start = (currentPage - 1) * pageSize;
@@ -197,7 +153,7 @@ function Admin() {
           <input
             className="admin-search"
             type="text"
-            placeholder="🔍 Buscar por usuario o acción…"
+            placeholder=" Buscar por usuario o acción…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

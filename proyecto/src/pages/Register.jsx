@@ -20,7 +20,7 @@ function Register() {
 
   const handleRegister = async () => {
     if (password !== confirm) {
-      showModal("Las contraseñas no coinciden ❌", "error");
+      showModal("Las contraseñas no coinciden ", "error");
       return;
     }
 
@@ -30,7 +30,7 @@ function Register() {
         email,
         password
       });
-      showModal("Usuario registrado ✅\nEn breve recibirás un email de bienvenida.", "success");
+      showModal("Usuario registrado \nEn breve recibirás un email de bienvenida.", "success");
       navigate("/login");
     } catch (error) {
   if (error.response && error.response.data) {

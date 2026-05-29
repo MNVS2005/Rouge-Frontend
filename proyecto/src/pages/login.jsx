@@ -28,7 +28,7 @@ function Login() {
     const { token, roles } = response.data;
 
     localStorage.setItem("token", token);
-    localStorage.setItem("roles", JSON.stringify(roles)); // 👈 CLAVE
+    localStorage.setItem("roles", JSON.stringify(roles)); // CLAVE
     localStorage.setItem("isAuth", "true");
     localStorage.setItem("currentUser", username);
 

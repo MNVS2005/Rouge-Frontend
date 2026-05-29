@@ -5,7 +5,7 @@ function Modal({ message, type, onClose }) {
   const icons = {
     error:   "X",
     warning: "!!",
-    success: "✅",
+    success: "✓",
   };
 
   return (
