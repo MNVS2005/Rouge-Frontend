@@ -64,22 +64,28 @@ function Home() {
     }
 
     try {
-      const token = localStorage.getItem('token');
-      const headers = { 'Authorization': `Bearer ${token}` };
-      const statusRes = await fetch(`${process.env.REACT_APP_API_URL}/api/download/status`, { headers });
+      const token = localStorage.getItem('token'); // ← ajusta si usas otra clave
+
+      const statusRes = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/download/status`,
+        { headers: { 'Authorization': `Bearer ${token}` } }
+      );
       const status = await statusRes.json();
 
       if (!status.available) {
         showModal("El archivo de descarga aún no está disponible. ¡Vuelve pronto!", "error");
         return;
       }
-     const blob = await statusRes.blob();
-     const url = window.URL.createObjectURL(blob);
-     const a = document.createElement('a');
-      a.href = url;
-      a.download = 'Rouge.zip';
-      a.click();
-     window.URL.revokeObjectURL(url);
+
+      // ✅ Fetch con token para que el filtro registre el usuario correcto
+      const gameRes = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/download/game`,
+        { headers: { 'Authorization': `Bearer ${token}` } }
+      );
+      const data = await gameRes.json();
+
+      // ✅ Redirigir a la URL externa
+      window.location.href = data.url;
 
     } catch (error) {
       console.error("Error en la descarga:", error);
