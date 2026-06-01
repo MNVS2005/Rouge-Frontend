@@ -75,7 +75,10 @@ function Home() {
       }
      const blob = await statusRes.blob();
      const url = window.URL.createObjectURL(blob);
-     
+     const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Rouge.zip';
+      a.click();
      window.URL.revokeObjectURL(url);
 
     } catch (error) {
