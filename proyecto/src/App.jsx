@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter,Routes,Route, Link } from 'react-router-dom';
 import Modal from './components/Modal';
 import api from "./axios";
+import EmberParticles from './components/Particles';
 
 
 
@@ -68,7 +69,6 @@ function Home() {
       const token = localStorage.getItem('token'); 
 
       const statusRes = await api.get("/api/download/status");
-      
 
       if (!statusRes.data.available) {
         showModal("El archivo de descarga aún no está disponible. ¡Vuelve pronto!", "error");
@@ -76,8 +76,6 @@ function Home() {
       }
 
       const gameRes = await api.get("/api/download/game");
-      
-
      
       window.location.href = gameRes.data.url;
 
@@ -90,7 +88,8 @@ function Home() {
   return (
     
     <div className="App">
-      <nav className="navbar">
+      <EmberParticles />  
+    <nav className="navbar">
 
         <button
           className={`hamburger-btn ${menuOpen ? "open" : ""}`}
