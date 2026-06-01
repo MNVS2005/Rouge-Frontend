@@ -38,9 +38,6 @@ p {
   line-height: 1.6;
 }
 
-/* ── NAVBAR ── */
-
-
 /* ── HERO ── */
 .hero {
   background: linear-gradient(150deg, #1a0a07 0%, #2d1209 40%, #0e0e12 100%);
@@ -96,6 +93,19 @@ p {
   margin-bottom: 28px;
 }
 
+.hero-title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: letraEntrada 0.5s ease forwards;
+}
+
+@keyframes letraEntrada {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .description {
   font-size: 16px;
   color: #c8c4bc;
@@ -104,17 +114,7 @@ p {
   line-height: 1.6;
 }
 
-/* ── VIDEO ── */
-.video {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
 
-.video iframe {
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-}
 
 /* ── CARACTERÍSTICAS ── */
 .Caracteristicas {

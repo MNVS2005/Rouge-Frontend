@@ -64,15 +64,20 @@ function Home() {
     }
 
     try {
-      const statusRes = await fetch(`${process.env.REACT_APP_API_URL}/api/download/status`);
+      const token = localStorage.getItem('token');
+      const headers = { 'Authorization': `Bearer ${token}` };
+      const statusRes = await fetch(`${process.env.REACT_APP_API_URL}/api/download/status`, { headers });
       const status = await statusRes.json();
 
       if (!status.available) {
         showModal("El archivo de descarga aún no está disponible. ¡Vuelve pronto!", "error");
         return;
       }
+     const blob = await statusRes.blob();
+     const url = window.URL.createObjectURL(blob);
+     
+     window.URL.revokeObjectURL(url);
 
-      window.location.href = `${process.env.REACT_APP_API_URL}/api/download/game`;
     } catch (error) {
       console.error("Error en la descarga:", error);
       showModal("No se pudo conectar con el servidor. Asegúrate de que el backend está activo.", "error");
@@ -137,10 +142,12 @@ function Home() {
         </div>
       )}
         
-        <h1>ROGUE</h1>
-        <p className='description'>Es un videojuego de Rougelike y metroidvania, donde cada elección importa. Explora, combate y descubre una historia que se adapta a tu forma de jugar.</p>
+        <h1 className="hero-title">
+          ROGUE
+        </h1>
+          <p className='description'>Es un videojuego de Rougelike y metroidvania, donde cada elección importa. Explora, combate y descubre una historia que se adapta a tu forma de jugar.</p>
         <h2>¡Únete a la Aventura!</h2>
-        <p>Prepárate para una experiencia de juego inolvidable. ¡Descubre Rouge y sumérgete en un mundo donde cada decisión cuenta!</p>
+          <p>Prepárate para una experiencia de juego inolvidable. ¡Descubre Rouge y sumérgete en un mundo donde cada decisión cuenta!</p>
         <section className='WAW?'>
           <h2>¿Quienes somos?</h2>
           <p>Somos dos estudiantes del grado superior de desarrollo de aplicaciones web en el instituto Puig Castellar decidimos crear Rouge como nuestro proyecto final.</p>
