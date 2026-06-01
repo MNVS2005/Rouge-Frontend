@@ -77,7 +77,7 @@ export default function EmberParticles() {
       style={{
         position: "fixed",
         inset: 0,
-        zIndex: 0,
+        zIndex: 1,
         pointerEvents: "none",   // no bloquea clics
       }}
     />

@@ -112,37 +112,30 @@ function Home() {
           <li><a href="#download"      onClick={() => setMenuOpen(false)}>Descargar</a></li>
           <li><a href="#design"        onClick={() => setMenuOpen(false)}>Diseño</a></li>
         </ul>
+        <div className="menu-user-box">
+    {!isAuth ? (
+      <>
+        <p>¿Quieres recibir notificaciones de los cambios?</p>
+        <p><Link to="/login" onClick={() => setMenuOpen(false)}>Inicia sesión</Link> o{" "}
+        <Link to="/register" onClick={() => setMenuOpen(false)}>regístrate</Link></p>
+      </>
+    ) : (
+      <>
+        <p>Usuario: <strong>{user}</strong></p>
+        <button className="btn-logout" onClick={() => {
+          localStorage.clear();
+          setIsAuth(false);
+          setUser("");
+          setMenuOpen(false);
+        }}>
+          Cerrar sesión
+        </button>
+      </>
+    )}
+  </div>
       </div>
         <Modal message={modal.message} type={modal.type} onClose={closeModal} />
       <section className="hero">
-        {!isAuth && (
-        <div className="info-box">
-          <p className="info-title">
-            ¿Quieres recibir notificaciones de los cambios?
-          </p>
-          <p className="info-actions">
-            <Link to="/login">Inicia sesión</Link> o{" "}
-            <Link to="/register">regístrate</Link> para estar al tanto de todas
-            las novedades sobre Rouge.
-          </p>
-        </div>
-      )}
-
-      {isAuth && (
-        <div className="info-box">
-          <p>Usuario: {user}</p>
-          <button
-            className="btn-logout"
-            onClick={() => {
-              localStorage.clear();
-              setIsAuth(false);
-              setUser("");
-            }}
-          >
-            Cerrar sesión
-          </button>
-        </div>
-      )}
         
         <h1 className="hero-title">
           ROGUE
@@ -339,13 +332,13 @@ function Home() {
       </div>
     </div>
 
-  </div>
+    </div>
       <br/>
       </section>
       <section className='download'>
         <h2 id="download">¡Descarga Rouge Ahora!</h2>
         <p>Disponible para PC y Mac. ¡No pierdas la oportunidad de vivir esta aventura única!</p>
-        <button className='download-button' onClick={handleDownload}>
+        <button className='download-button' onClick={isAuth ? handleDownload : () => { window.location.href = "/login"; }}>
           {isAuth ? "Descargar" : "Inicia sesión para descargar"}
         </button>
       </section>
@@ -706,7 +699,7 @@ function Home() {
           <dt><b>¿Qué tipo de historia puedo esperar en Rouge?</b></dt><dd>Rouge presenta una narrativa envolvente que se adapta a tus elecciones. Cada decisión que tomes influirá en el desarrollo de la historia, creando una experiencia única para cada jugador.</dd>
         </ul>
       </section>
-      </div>
+    </div>
   );
 }
 function AnimatedDecoration({ title, frames, interval = 120 }) {

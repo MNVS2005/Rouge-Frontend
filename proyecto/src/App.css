@@ -48,7 +48,7 @@ p {
   text-align: center;
   padding: 70px 40px 60px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero::before {
@@ -871,4 +871,63 @@ p {
   color: var(--text);
   border-left-color: var(--red);
   background: rgba(232, 67, 42, 0.08);
+}
+.menu-user-box {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.menu-user-box strong {
+  color: var(--text);
+}
+
+.menu-user-box a {
+  color: var(--blue-acc);
+  font-weight: 600;
+}
+
+.menu-user-box .btn-logout {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  background: var(--red-dark);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.menu-user-box .btn-logout:hover {
+  background: var(--red);
+}
+
+/* ── SCROLLBAR ── */
+
+/* Ancho de la barra */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Fondo del track (carril) */
+::-webkit-scrollbar-track {
+  background: var(--dark-2);
+}
+
+/* La barra en sí */
+::-webkit-scrollbar-thumb {
+  background: var(--red-dark);
+  border-radius: 10px;
+}
+
+/* Hover sobre la barra */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red);
+  box-shadow: 0 0 6px rgba(232, 67, 42, 0.6);
 }
