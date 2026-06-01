@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import { useEffect, useState } from "react";
 import { BrowserRouter,Routes,Route, Link } from 'react-router-dom';
 import Modal from './components/Modal';
+import api from "./axios";
 
 
 
@@ -64,12 +65,9 @@ function Home() {
     }
 
     try {
-      const token = localStorage.getItem('token'); // ← ajusta si usas otra clave
+      const token = localStorage.getItem('token'); 
 
-      const statusRes = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/download/status`,
-        { headers: { 'Authorization': `Bearer ${token}` } }
-      );
+      const statusRes = await api.get("/api/download/status");
       const status = await statusRes.json();
 
       if (!status.available) {
@@ -77,15 +75,11 @@ function Home() {
         return;
       }
 
-      // ✅ Fetch con token para que el filtro registre el usuario correcto
-      const gameRes = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/download/game`,
-        { headers: { 'Authorization': `Bearer ${token}` } }
-      );
-      const data = await gameRes.json();
+      const gameRes = await api.get("/api/download/game");
+      
 
-      // ✅ Redirigir a la URL externa
-      window.location.href = data.url;
+     
+      window.location.href = gameRes.data.url;
 
     } catch (error) {
       console.error("Error en la descarga:", error);
