@@ -68,9 +68,9 @@ function Home() {
       const token = localStorage.getItem('token'); 
 
       const statusRes = await api.get("/api/download/status");
-      const status = await statusRes.json();
+      
 
-      if (!status.available) {
+      if (!statusRes.data.available) {
         showModal("El archivo de descarga aún no está disponible. ¡Vuelve pronto!", "error");
         return;
       }
