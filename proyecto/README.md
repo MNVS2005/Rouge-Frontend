@@ -24,6 +24,7 @@ El objetivo del proyecto es mostrar la presentación del juego, permitir el regi
 - `src/pages/Register.jsx`: pantalla de registro de usuario.
 - `src/pages/Admin.jsx`: panel administrativo con actividad, filtros y gestión de archivo.
 - `src/components/Modal.jsx`: componente modal reutilizable para mensajes de éxito/error.
+- `src/components/Particles.jsx`: componente para la creacion de la particulas dentro de la pagina web 
 - `src/axios.js`: instancia de Axios con baseURL y token Authorization.
 - `public/assets/`: carpeta de recursos gráficos y sprites.
 
